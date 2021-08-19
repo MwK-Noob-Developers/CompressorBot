@@ -29,7 +29,7 @@ async def up(event):
 async def start(event):
     ok = await event.client(GetFullUserRequest(event.sender_id))
     await event.reply(
-        f"Hi `{ok.user.first_name}`\nThis is a Simple <b>Telegram Video Compress Bot</b> by Team <b>MwK</b>\n\nWhich Can <b>Encode</b> Videos.\nReduce Size of Videos With <b>Negligible Quality Change</b>\n\nYou can Generate <b>Samples/screenshots</b> too.",
+        f"Hi `{ok.user.first_name}`\nThis is a Simple **Telegram Video Compress Bot** by Team **MwK**\n\nWhich Can **Encode** Videos.\nReduce Size of Videos With **Negligible Quality** Change\n\nYou can Generate **Samples/screenshots** too.",
         buttons=[
             [Button.inline("How To Use Me", data="ihelp")],
             [
@@ -44,13 +44,13 @@ async def start(event):
 
 async def help(event):
     await event.reply(
-        "**📢 A Quality CompressorBot**\n\n+This Bot Compress Videos With Negligible Quality Change.\n+Generate Sample Compressed Video\n+Easy to Use\n-Due to Quality Settings Bot Takes Time To Compress.\nSo Be patience Nd Send videos One By One After Completing.\nDont Spam Bot.\n\nJust Forward Video To Get Options\n\n<b>Made with ❤️ by @shamilnelli</b>"
+        "**📢 A Quality CompressorBot**\n\n+This Bot Compress Videos With Negligible Quality Change.\n+Generate Sample Compressed Video\n+Easy to Use\n-Due to Quality Settings Bot Takes Time To Compress.\nSo Be patience Nd Send videos One By One After Completing.\nDont Spam Bot.\nJust Forward Video To Get Options\n\n**Made with ❤️ by @shamilnelli**"
     )
 
 
 async def ihelp(event):
     await event.edit(
-        "**📢 A Quality CompressorBot**\n\n+This Bot Compress Videos With Negligible Quality Change.\n+Generate Sample Compressed Video\n+Screenshots Too\n+Easy to Use\n-Due to Quality Settings Bot Takes Time To Compress.\nSo Be patience Nd Send videos One By One After Completing.\nDont Spam Bot.\n\nJust Forward Video To Get Options\n\n<b>Made with ❤️ by @shamilnelli</b>",
+        "**📢 A Quality CompressorBot**\n\n+This Bot Compress Videos With Negligible Quality Change.\n+Generate Sample Compressed Video\n+Screenshots Too\n+Easy to Use\n-Due to Quality Settings Bot Takes Time To Compress.\nSo Be patience Nd Send videos One By One After Completing.\nDont Spam Bot.\nJust Forward Video To Get Options\n\n**Made with ❤️ by @shamilnelli**",
         buttons=[Button.inline("Main Menu", data="beck")],
     )
 
@@ -58,7 +58,7 @@ async def ihelp(event):
 async def beck(event):
     ok = await event.client(GetFullUserRequest(event.sender_id))
     await event.edit(
-        f"Hi `{ok.user.first_name}`\nThis is A CompressorBot Which Can Encode Videos.\nReduce Size of Videos With Negligible Quality Change\nU can Generate Samples/screenshots too.",
+        f"Hi `{ok.user.first_name}`\nThis is **A CompressorBot** Which Can **Encode Videos.**\nReduce Size of Videos With **Negligible Quality Change**\nU can Generate **Samples/screenshots** too.",
         buttons=[
             [Button.inline("How To Use Me", data="ihelp")],
             [
