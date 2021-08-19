@@ -35,13 +35,14 @@ async def screenshot(e):
         await e.client.send_file(e.chat_id, pic)
         await e.client.send_message(
             e.chat_id,
-            "Check Screenshots Above 😁",
+            "Check Screenshots Above",
             buttons=[
                 [
                     Button.inline("GENERATE SAMPLE", data=f"gsmpl{wah}"),
                     Button.inline("COMPRESS", data=f"sencc{wah}"),
                 ],
-                [Button.inline("SKIP", data=f"skip{wah}")],
+                [Button.inline("SKIP", data=f"skip{wah}"),
+                 Button.url("Report BUG", url="t.me/redbullfed"),],
             ],
         )
         COUNT.remove(e.chat_id)
@@ -62,7 +63,7 @@ async def stats(e):
         ans = f"Downloaded:\n{ov}\n\nCompressing:\n{ot}"
         await e.answer(ans, cache_time=0, alert=True)
     except BaseException:
-        await e.answer("Someting Went Wrong 🤔\nResend Media", cache_time=0, alert=True)
+        await e.answer("Someting Went Wrong 🥵\nResend Media", cache_time=0, alert=True)
 
 
 async def encc(e):
@@ -75,8 +76,8 @@ async def encc(e):
         nn = await e.edit(
             "`Compressing..`",
             buttons=[
-                [Button.inline("STATS", data=f"stats{wah}")],
-                [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+                [Button.inline("STATUS", data=f"stats{wah}"),
+                 Button.inline("CANCEL", data=f"skip{wah}")],
             ],
         )
         cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -87,7 +88,7 @@ async def encc(e):
         er = stderr.decode()
         try:
             if er:
-                await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+                await e.edit(str(er) + "\n\n**ERROR** Contact @redbullFED")
                 COUNT.remove(e.chat_id)
                 os.remove(dl)
                 return os.remove(out)
@@ -145,8 +146,8 @@ async def sample(e):
     xxx = await e.edit(
         "`Generating Sample...`",
         buttons=[
-            [Button.inline("STATS", data=f"stats{wah}")],
-            [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+            [Button.inline("STATUS", data=f"stats{wah}"),
+             Button.inline("CANCEL", data=f"skip{wah}")],
         ],
     )
     ncmd = f'ffmpeg -i "{dl}" -preset ultrafast -ss {ss} -to {dd} -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -180,7 +181,8 @@ async def sample(e):
                     Button.inline("SCREENSHOTS", data=f"sshot{wah}"),
                     Button.inline("COMPRESS", data=f"sencc{wah}"),
                 ],
-                [Button.inline("SKIP", data=f"skip{wah}")],
+                [Button.inline("SKIP", data=f"skip{wah}"),
+                 Button.url("Report BUG", url="t.me/redbullfed"),],
             ],
         )
         COUNT.remove(e.chat_id)
@@ -213,14 +215,14 @@ async def encod(event):
             pass
         xxx = await event.reply("`Downloading...`")
         """ For Force Subscribe Channel"""
-        # pp = []
-        # async for x in event.client.iter_participants("put group username"):
-        #    pp.append(x.id)
-        # if (user.id) not in pp:
-        #    return await xxx.edit(
-        #        "U Must Subscribe This Channel To Use This Bot",
-        #       buttons=[Button.url("JOIN CHANNEL", url="put group link")],
-        #   )
+        pp = []
+        async for x in event.client.iter_participants("put group username"):
+           pp.append(x.id)
+        if (user.id) not in pp:
+           return await xxx.edit(
+               "You Must Join my updates Channel To Use This Me",
+              buttons=[Button.url("JOIN CHANNEL", url="t.me/mwklinks")],
+          )
         if len(COUNT) > 4 and user.id != OWNER:
             llink = (await event.client(cl(LOG))).link
             return await xxx.edit(
@@ -250,7 +252,7 @@ async def encod(event):
                 filename = event.file.name
                 if not filename:
                     filename = (
-                            "video_" + dt.now().isoformat("_", "seconds") + ".mp4"
+                            "@mwkOTT" + dt.now().isoformat("_", "seconds") + ".mp4"
                     )
                 dl = dir + filename
                 with open(dl, "wb") as f:
@@ -297,14 +299,15 @@ async def encod(event):
         COUNT.remove(user.id)
         await event.client.send_message(
             event.chat_id,
-            f"🐠DOWNLODING COMPLETED!!🐠",
+            f"DOWNLODING COMPLETED!!\nkindly choose below options",
             buttons=[
                 [
                     Button.inline("GENERATE SAMPLE", data=f"gsmpl{key}"),
                     Button.inline("SCREENSHOTS", data=f"sshot{key}"),
                 ],
-                [Button.url("MEDIAINFO", url=inf)],
-                [Button.inline("COMPRESS", data=f"sencc{key}")],
+                [Button.url("MEDIAINFO", url=inf),
+                 Button.inline("COMPRESS", data=f"sencc{key}")],
+                [Button.url("Report BUG", url="t.me/redbullfed")],
             ],
         )
     except BaseException as er:
@@ -321,8 +324,8 @@ async def customenc(e, key):
     nn = await e.edit(
         "`Compressing..`",
         buttons=[
-            [Button.inline("STATS", data=f"stats{wah}")],
-            [Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
+            [Button.inline("STATUS", data=f"stats{wah}"),
+             Button.inline("CANCEL PROCESS", data=f"skip{wah}"),],
         ],
     )
     cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
@@ -333,7 +336,7 @@ async def customenc(e, key):
     er = stderr.decode()
     try:
         if er:
-            await e.edit(str(er) + "\n\n**ERROR** Contact @danish_00")
+            await e.edit(str(er) + "\n\n**ERROR** Contact @redbullFED")
             COUNT.remove(e.chat_id)
             os.remove(dl)
             return os.remove(out)
