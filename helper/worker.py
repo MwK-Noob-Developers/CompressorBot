@@ -65,7 +65,7 @@ async def encc(e):
                  Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
             ],
         )
-        cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
+        cmd = f'ffmpeg -i "{dl}" -preset medium -c:v libx265 -metadata "title=@shamiLneLLi // MwKOTT" -crf 35 -map 0:v -c:a aac -b:a 320k -metadata "title=@shamiLneLLi // MwKOTT" -map 0:a -c:s copy -metadata "title=@shamiLneLLi // MwKOTT" -map 0:s? "{out}" -y'
         process = await asyncio.create_subprocess_shell(
             cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
         )
@@ -135,7 +135,7 @@ async def sample(e):
              Button.inline("CANCEL PROCESS", data=f"skip{wah}")],
         ],
     )
-    ncmd = f'ffmpeg -i "{dl}" -preset ultrafast -ss {ss} -to {dd} -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
+    ncmd = f'ffmpeg -i "{dl}" -preset medium -c:v libx265 -metadata "title=@shamiLneLLi // MwKOTT" -crf 35 -map 0:v -c:a aac -b:a 320k -metadata "title=@shamiLneLLi // MwKOTT" -map 0:a -c:s copy -metadata "title=@shamiLneLLi // MwKOTT" -map 0:s? "{out}" -y'
     process = await asyncio.create_subprocess_shell(
         ncmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
@@ -312,7 +312,7 @@ async def customenc(e, key):
              Button.inline("CANCEL", data=f"skip{wah}")],
         ],
     )
-    cmd = f'ffmpeg -i "{dl}" -preset ultrafast -c:v libx265 -crf 27 -map 0:v -c:a aac -map 0:a -c:s copy -map 0:s? "{out}" -y'
+    cmd = f'ffmpeg -i "{dl}" -preset medium -c:v libx265 -metadata "title=@shamiLneLLi // MwKOTT" -crf 35 -map 0:v -c:a aac -b:a 320k -metadata "title=@shamiLneLLi // MwKOTT" -map 0:a -c:s copy -metadata "title=@shamiLneLLi // MwKOTT" -map 0:s? "{out}" -y'
     process = await asyncio.create_subprocess_shell(
         cmd, stdout=asyncio.subprocess.PIPE, stderr=asyncio.subprocess.PIPE
     )
